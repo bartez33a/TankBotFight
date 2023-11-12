@@ -58,6 +58,7 @@ add_library(
   src/Menu/MenuLevel.cpp
   src/Menu/Button.cpp
   src/Menu/MenuItem.cpp
+  src/Menu/Caption.cpp
   )
 
 target_include_directories(tank_bot_fight_lib PRIVATE src)
