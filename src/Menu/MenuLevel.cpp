@@ -1,6 +1,7 @@
 #include "MenuLevel.hpp"
 
-MenuLevel::MenuLevel(std::initializer_list<Button> buttons) : mButtons{buttons} {}
+MenuLevel::MenuLevel(const Caption& menu_caption, std::initializer_list<Button> buttons)
+    : mButtons{buttons}, mMenuCaption{menu_caption} {}
 
 void MenuLevel::processEvents(const sf::Event& event) {
   // process keyboard inputs
@@ -55,6 +56,8 @@ MenuLevel* MenuLevel::get_next_level() const { return mNextLevel; }
 void MenuLevel::reset_level_request() { mRequestLevelChange = false; }
 
 void MenuLevel::draw(sf::RenderWindow& window, const sf::Font& font) {
+  mMenuCaption.draw(window, font);
+
   for (auto& button : mButtons) {
     button.draw(window, font);
   }

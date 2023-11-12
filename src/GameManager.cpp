@@ -23,7 +23,17 @@ const unsigned int buttonWidth = WIDTH / 5;
 const unsigned int buttonHeight = HEIGHT / 10;
 constexpr unsigned int verticalSpacing = 20;
 
+constexpr unsigned int menuTitleSize = 36u;
+
+#define COLOR_BLUE \
+  sf::Color { 0, 0, 255 }
+#define COLOR_GREEN \
+  sf::Color { 0, 255, 0 }
+#define COLOR_RED \
+  sf::Color { 255, 0, 0 }
+
 MenuLevel main_menu{
+    Caption{"Main menu", sf::Vector2f(WIDTH / 2, 50), menuTitleSize, COLOR_BLUE},
     {{"Start", sf::Vector2f((WIDTH - buttonWidth) / 2, verticalSpacing + buttonHeight * 1),
       buttonWidth, buttonHeight, main_menu_start_callback, ButtonType::Callback, nullptr},
      {"Options", sf::Vector2f((WIDTH - buttonWidth) / 2, verticalSpacing + buttonHeight * 3),
@@ -31,8 +41,9 @@ MenuLevel main_menu{
      {"Exit", sf::Vector2f((WIDTH - buttonWidth) / 2, verticalSpacing + buttonHeight * 5),
       buttonWidth, buttonHeight, main_menu_exit_callback, ButtonType::Callback, nullptr}}};
 
-MenuLevel options{{"Back", sf::Vector2f(WIDTH / 2 - buttonWidth, 2 * buttonHeight + 20),
-                   buttonWidth, buttonHeight, nullptr, ButtonType::LevelChanger, &main_menu}};
+MenuLevel options{Caption{"Options", sf::Vector2f(WIDTH / 2.0, 50.0), menuTitleSize, COLOR_BLUE},
+                  {{"Back", sf::Vector2f(WIDTH / 2 - buttonWidth, 2 * buttonHeight + 20),
+                    buttonWidth, buttonHeight, nullptr, ButtonType::LevelChanger, &main_menu}}};
 
 GameManager::GameManager()
     : mWindow{sf::VideoMode(WIDTH, HEIGHT), "TankBotFight"},

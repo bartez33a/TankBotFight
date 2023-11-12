@@ -4,12 +4,13 @@
 #include <vector>
 
 #include "Button.hpp"
+#include "Caption.hpp"
 
 class Button;
 
 class MenuLevel {
  public:
-  MenuLevel(std::initializer_list<Button> buttons);
+  MenuLevel(const Caption& menu_caption, std::initializer_list<Button> buttons);
   void draw(sf::RenderWindow&, const sf::Font& font);
   void processEvents(const sf::Event& event);
   bool is_level_change_requested() const;
@@ -17,6 +18,7 @@ class MenuLevel {
   void reset_level_request();
 
  private:
+  Caption mMenuCaption;
   std::vector<Button> mButtons;
   int mSelectedButton = 0;
   bool mIsClicked = false;
