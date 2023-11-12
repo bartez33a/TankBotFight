@@ -2,8 +2,8 @@
 #include <SFML/Graphics.hpp>
 #include <iostream>
 
-#include "Button.hpp"
-#include "MenuLevel.hpp"
+#include "Menu/Button.hpp"
+#include "Menu/MenuLevel.hpp"
 
 class MainMenu {
  public:

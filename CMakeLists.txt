@@ -23,6 +23,7 @@ if(ENABLE_CLANG_TIDY)
     ${CMAKE_SOURCE_DIR}/src/*
     ${CMAKE_SOURCE_DIR}/src/background/*
     ${CMAKE_SOURCE_DIR}/src/Controllers/*
+    ${CMAKE_SOURCE_DIR}/src/Menu/*
     ${CMAKE_SOURCE_DIR}/src/Tank/*
     ${CMAKE_SOURCE_DIR}/src/Players/*)
 endif()
@@ -54,9 +55,9 @@ add_library(
   src/Sound.cpp
   src/MainMenu.cpp
   src/GameManager.cpp
-  src/MenuLevel.cpp
-  src/Button.cpp
-  src/MenuItem.cpp
+  src/Menu/MenuLevel.cpp
+  src/Menu/Button.cpp
+  src/Menu/MenuItem.cpp
   )
 
 target_include_directories(tank_bot_fight_lib PRIVATE src)
